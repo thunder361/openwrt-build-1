@@ -11,3 +11,4 @@
 - [ xiaorouji package](https://github.com/xiaorouji/openwrt-passwall)
 - [P3TERX](https://github.com/P3TERX/Actions-OpenWrt)
 - [kenzok8](https://github.com/kenzok8/openwrt-packages)
+- [hanwckf](https://github.com/hanwckf/immortalwrt-mt798x)
