@@ -63,7 +63,7 @@ jobs:
       if: env.TELEGRAM_TOKEN && ! contains(github.event.action, 'notg')
       continue-on-error: true
       run: |
-        curl -k --data chat_id="${{ env.TELEGRAM_CHAT_ID }}" --data "text=🎉 OpenWrt ${{ env.VERSION }} ${{matrix.target}} 开始编译 😋" "https://api.telegram.org/bot${{ env.TELEGRAM_TOKEN }}/sendMessage"        
+        curl -k --data chat_id="${{ env.TELEGRAM_CHAT_ID }}" --data "text=🎉 OpenWrt ${{ env.VERSION }} ${{matrix.target}} 开始编译 360 T7 固件 😋" "https://api.telegram.org/bot${{ env.TELEGRAM_TOKEN }}/sendMessage"        
     
     - name: 下载源码
       working-directory: /workdir
@@ -171,7 +171,7 @@ jobs:
       if: env.TELEGRAM_TOKEN && ! contains(github.event.action, 'notg')
       continue-on-error: true
       run: |
-        curl -k --data chat_id="${{ env.TELEGRAM_CHAT_ID }}" --data "text=🎉 OpenWrt ${{ env.VERSION }} ${{matrix.target}} 编译成功 😋" "https://api.telegram.org/bot${{ env.TELEGRAM_TOKEN }}/sendMessage"        
+        curl -k --data chat_id="${{ env.TELEGRAM_CHAT_ID }}" --data "text=🎉 OpenWrt ${{ env.VERSION }} ${{matrix.target}} 360 T7 固件编译成功 😋" "https://api.telegram.org/bot${{ env.TELEGRAM_TOKEN }}/sendMessage"        
     
     - name: 删除任务
       uses: GitRML/delete-workflow-runs@main
