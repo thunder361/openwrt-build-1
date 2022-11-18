@@ -10,11 +10,16 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 #修改默认IP
-sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_generate   # 定制默认IP
+sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_generate
+
 # 移除重复软件包
 rm -rf feeds/luci/themes/luci-theme-argon
+
 # 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+
+# 修改主机名字，把MSG1500修改你喜欢的就行（不能纯数字或者使用中文）
+sed -i 's/ImmortalWrt/360T7/g' package/base-files/files/bin/config_generate
 
 # Themes
 #git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
