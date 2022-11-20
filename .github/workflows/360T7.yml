@@ -137,7 +137,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: OpenWrt_firmware${{ env.DEVICE_NAME }}
+        name: OpenWrt_firmware${{ env.DEVICE_NAME }}_$(date +%Y%m%d)
         path: ${{ env.FIRMWARE }}
 
     - name: 生成标签
