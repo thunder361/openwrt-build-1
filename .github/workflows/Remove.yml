@@ -6,8 +6,17 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-    - name: Delete workflow runs
+    - name: 删除任务
       uses: GitRML/delete-workflow-runs@main
       with:
         retain_days: 0
         keep_minimum_runs: 0
+
+    - name: 移除旧项目
+      uses: dev-drprasad/delete-older-releases@v0.1.0
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        keep_latest: 0
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GIT_USER_TOKEN }}
