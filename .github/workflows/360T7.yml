@@ -27,7 +27,7 @@ env:
 #  REPO_URL: https://github.com/padavanonly/immortalwrtARM
 #  REPO_BRANCH: mt7981
   REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
-  REPO_BRANCH: master
+  REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/360T7.config
   DIY_P1_SH: diy/diy-part-360T7-1.sh
