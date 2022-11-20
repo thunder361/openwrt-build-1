@@ -7,10 +7,17 @@ jobs:
   Delete-Workflow-Archive:
     runs-on: ubuntu-latest
     steps:
-      - name: Delete Workflow Runs
-        id: workflow
-        uses: GitRML/delete-workflow-runs@main
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          retain_days: 1
-          keep_minimum_runs: 100
+    - name: 删除任务
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 1
+        keep_minimum_runs: 1
+
+    - name: 移除旧项目
+      uses: dev-drprasad/delete-older-releases@v0.1.0
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        keep_latest: 1
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GIT_USER_TOKEN }}
