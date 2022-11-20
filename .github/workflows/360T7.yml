@@ -157,8 +157,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GIT_USER_TOKEN }}
       with:
-        name: ${{ steps.generate_name.outputs.release_name }} 
-        tag_name: ${{ steps.generate_name.outputs.release_tag }}
+        name: ${{ steps.tag.outputs.release_name }} 
+        tag_name: ${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
