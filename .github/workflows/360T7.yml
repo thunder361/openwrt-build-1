@@ -105,6 +105,7 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+        
     - name: 整合固件
       id: compile
       run: |
@@ -135,6 +136,7 @@ jobs:
         cd openwrt/bin/targets/*/*
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
         echo "::set-output name=status::success"
         
     - name: 上传固件
