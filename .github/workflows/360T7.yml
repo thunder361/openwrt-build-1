@@ -36,7 +36,6 @@ env:
   SCKEY: ${{ secrets.SCKEY }}
   TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-  DATE: ${{ (date +"%Y%m%d%H%M") }}
   TZ: Asia/Shanghai
   
   
@@ -138,7 +137,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.DATE }}
+        name: OpenWrt_firmware${{ env.DEVICE_NAME }}
         path: ${{ env.FIRMWARE }}
 
     - name: 生成标签
