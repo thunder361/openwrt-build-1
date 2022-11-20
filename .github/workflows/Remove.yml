@@ -1,45 +1,13 @@
 name: Remove
 
 on:
-  #schedule:
-    #- cron: 1 1 * * 1
-  watch:
-    types: started
-
+   workflow_dispatch:
 jobs:
-  
-  Cleanup-Old-Releases:
-    runs-on: ubuntu-20.04
-    if: github.event.repository.owner.id == github.event.sender.id
-    steps:  
-    - name: Delete Older Releases
-      uses: dev-drprasad/delete-older-releases@master
-      with:
-        keep_latest: 9
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GIT_USER_TOKEN }}
-
-  Cleanup-Old-Artifacts:
-    runs-on: ubuntu-20.04
-    if: github.event.repository.owner.id == github.event.sender.id
+  check:
+    runs-on: ubuntu-latest
     steps:
-    - name: Cleanup Old Action Artifacts
-      uses: heidi-pay/gha-delete-artifacts@main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GIT_USER_TOKEN }}
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
       with:
-        days: 100
-        max-artifacts-to-delete: 100
-        dry-run: no
-        
-  Cleanup-Workflow-Logs:
-    runs-on: ubuntu-20.04
-    if: github.event.repository.owner.id == github.event.sender.id
-    steps:
-      - name: Cleanup Workflow Logs
-        uses: Mattraks/delete-workflow-runs@main
-        with:
-          token: ${{ secrets.GIT_USER_TOKEN }}
-          repository: ${{ github.repository }}
-          retain_days: 0
+        retain_days: 0
+        keep_minimum_runs: 0
