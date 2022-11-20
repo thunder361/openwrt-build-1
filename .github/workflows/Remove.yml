@@ -13,3 +13,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           retain_days: 1
+          keep_minimum_runs: 100
