@@ -7,9 +7,9 @@
 
 部分源码和脚本来自
 
-- [Lean](https://github.com/coolsnowwolf/lede)
-- [P3TERX](https://github.com/P3TERX/Actions-OpenWrt)
-- [kenzok8](https://github.com/kenzok8/openwrt-packages)
-- [hanwckf](https://github.com/hanwckf/immortalwrt-mt798x)
-- [immortalwrt](https://github.com/immortalwrt/immortalwrt)
+[Lean](https://github.com/coolsnowwolf/lede)
+[P3TERX](https://github.com/P3TERX/Actions-OpenWrt)
+[kenzok8](https://github.com/kenzok8/openwrt-packages)
+[hanwckf](https://github.com/hanwckf/immortalwrt-mt798x)
+[immortalwrt](https://github.com/immortalwrt/immortalwrt)
 
