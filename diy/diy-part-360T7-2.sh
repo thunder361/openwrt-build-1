@@ -19,7 +19,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon-new/g' feeds/luci/collections/lu
 sed -i 's/ImmortalWrt/360T7/g' package/base-files/files/bin/config_generate
 
 # Themes
-git clone --depth 1 -b 18.06 https://github.com/padavanonly/immortalwrtARM/tree/mt7981/package/luci-theme-argon-new package/luci-theme-argon-new
+#git clone --depth 1 -b 18.06 https://github.com/padavanonly/immortalwrtARM/tree/mt7981/package/luci-theme-argon-new package/luci-theme-argon-new
 #git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
