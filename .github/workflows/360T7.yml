@@ -162,7 +162,6 @@ jobs:
       with:
         name: ${{ steps.tag.outputs.release_name }} 
         tag_name: ${{ steps.tag.outputs.release_tag }}
-        body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
     - name: Telegram 通知
