@@ -135,12 +135,14 @@ jobs:
         
     - name: 上传固件
       uses: actions/upload-artifact@main
+      if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
     - name: 生成标签
-      id: generate_name
+      id: tag
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
         time=$(date +%Y%m%d%H%M)
         release_tag="$time"
@@ -151,6 +153,7 @@ jobs:
         
     - name: 上传固件至项目
       uses: softprops/action-gh-release@v1
+      if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
         GITHUB_TOKEN: ${{ secrets.GIT_USER_TOKEN }}
       with:
