@@ -28,8 +28,8 @@ env:
   REPO_BRANCH: mt7981
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/ax3000.config
-  DIY_P1_SH: diy/diy-part-360T7-1.sh
-  DIY_P2_SH: diy/diy-part-360T7-2.sh
+  DIY_P1_SH: diy/diy-ax3000-1.sh
+  DIY_P2_SH: diy/diy-ax3000-2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -64,7 +64,7 @@ jobs:
       if: env.TELEGRAM_TOKEN && ! contains(github.event.action, 'notg')
       continue-on-error: true
       run: |
-        curl -k --data chat_id="${{ env.TELEGRAM_CHAT_ID }}" --data "text=🎉 OpenWrt ${{ env.VERSION }} ${{matrix.target}} 开始编译 360 T7 固件 😋" "https://api.telegram.org/bot${{ env.TELEGRAM_TOKEN }}/sendMessage"        
+        curl -k --data chat_id="${{ env.TELEGRAM_CHAT_ID }}" --data "text=🎉 OpenWrt ${{ env.VERSION }} ${{matrix.target}} 开始编译 ax3000 固件 😋" "https://api.telegram.org/bot${{ env.TELEGRAM_TOKEN }}/sendMessage"        
     
     - name: 下载源码
       working-directory: /workdir
@@ -77,7 +77,7 @@ jobs:
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
-        cd immortalwrt-mt798x
+        cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
     - name: 更新软件源
